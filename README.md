@@ -26,7 +26,7 @@ Each writeup includes:
 
 Investigation of an employee's hard drive suspected of data exfiltration. Found 4 pieces of hidden evidence using various forensic techniques including steganography extraction, password cracking, and anti-forensic detection.
 
-[Read Full Writeup →](./intro-digital-forensics-capstone/)
+[Read Full Writeup →](./DigitalForensics-CourseCapstoneWriteup/)
 
 ---
 
