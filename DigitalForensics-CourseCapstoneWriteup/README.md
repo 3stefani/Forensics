@@ -20,9 +20,8 @@
 - [Evidence Summary](#evidence-summary)
 - [Key Findings](#key-findings)
 - [Lessons Learned](#lessons-learned)
-- [Tools Reference](#tools-reference)
 - [Resources](#resources)
-- [Author](#author)
+  
 
 ## Overview
 
@@ -110,7 +109,7 @@ strings Form1.jpg
 
 ```
 
-**🎯 EVIDENCE 1/4 FOUND**:
+**EVIDENCE 1/4 FOUND**:
 ```
 Simon, I have usernames and passwords for the VPN. Still on my work PC.
 Don't want to risk emailing them just yet. When I do, the file is a .jpg
@@ -152,7 +151,7 @@ wrote extracted data to "passwords.txt"
 cat passwords.txt
 
 ```
-**🎯 EVIDENCE 2/4 FOUND**:
+**EVIDENCE 2/4 FOUND**:
 
 **File contains passwords**
 
@@ -225,7 +224,7 @@ Extracted file: `employeedump`
 cat employeedump
 ```
 
-**🎯 EVIDENCE 3/4 FOUND**:
+**EVIDENCE 3/4 FOUND**:
 
 
 ```
@@ -276,7 +275,7 @@ cat bootstrap.min.abc
 
 ```
 
-**🎯 EVIDENCE 4/4 FOUND**:
+**EVIDENCE 4/4 FOUND**:
 
 Inside the file, commented in the code:
 
