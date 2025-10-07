@@ -6,7 +6,7 @@
 ![Evidence](https://img.shields.io/badge/Evidence-4%2F4-orange)
 ![Tools](https://img.shields.io/badge/Tools-Linux_CLI%2C_Steghide%2C_John-purple)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Challenge Description](#challenge-description)
@@ -101,6 +101,8 @@ DicksonUnited
 
 **Step 2: Analyze Form1.jpg**
 
+I proceed to open the Form1.jpg image referred to in the message. It appears to be a blank form, with no relevant information.
+
 Extract hidden strings from image:
 
 ```
@@ -130,11 +132,9 @@ Based on the previous clue, we know there's a JPG image with extractable informa
 
 **Step 1: Search for Images**
 
-Explore disk for JPG files:
-```
-find . -name "*.jpg" -type f
+Explore disk for JPG files. I go through the images and, sure enough, I find one called laptop.jpg from which I can extract the "passwords" file using steghuide.
 
-```
+
 **Step 2: Extract from laptop.jpg**
 
 Test steghide on images found:
@@ -154,39 +154,28 @@ cat passwords.txt
 ```
 **🎯 EVIDENCE 2/4 FOUND**:
 
-**File contains VPN credentials:**
-
-VPN Credentials {2 of 4}
-username: jharrison
-password: Str0ngP@ssw0rd2019
-username: smartinez
-password: Winter2019!
-[... more credentials ...]
+**File contains passwords**
 
 **Information Obtained**:
 - **File**: `laptop.jpg`
 - **Directory**: (images directory)
 - **Technique**: Steganography with steghide
-- **Evidence**: `passwords.txt` file containing corporate VPN credentials
+- **Evidence**: `passwords.txt` file containing passwords
 
 ### Evidence 3/4: Employee Database in Protected ZIP
 
 **Step 1: Search for Hidden Files**
 
-Remember to use `ls -a` to find hidden files/directories:
+Using `ls -a` to find hidden files/directories.
 
-```
-find . -name ".*" -type d
-
-```
-Found hidden directory: `./to-do`
-
-**Step 2: Explore Hidden Directory**
-
+After a file search, I find the following file ‘.a0415ns.zip’ hidden in /WebDev work/unfinidhed webpages/to-do/
 ```
 cd to-do
 ls -la
 ```
+
+**Step 2: Attempt to extract**
+
 Found: `.a0415ns.zip`
 
 Attempt to extract:
@@ -196,6 +185,9 @@ unzip .a0415ns.zip
 
 ```
 **Error**: Password protected
+
+This zip file is password-protected. To do this, we used John the Ripper with the Rockyou dictionary.
+
 
 **Step 3: Password Cracking with John the Ripper**
 
@@ -225,13 +217,12 @@ john --show zip.hash
 unzip -P vendy13031998 .a0415ns.zip
 
 ```
-Extracted file: `employeedump.csv`
+Extracted file: `employeedump`
 
 **Step 5: Analyze CSV**
 
 ```
-cat employeedump.csv | head
-
+cat employeedump
 ```
 
 **🎯 EVIDENCE 3/4 FOUND**:
@@ -266,10 +257,6 @@ cat employeedump.csv | head
 Continue exploring the disk for the fourth piece of evidence:
 
 
-```
-find . -type f -name "*" | grep -v ".jpg" | grep -v ".png"
-
-```
 **Step 2: Analyze Suspicious Files**
 
 Found file with unusual name: `bootstrap.min.abc`
@@ -288,12 +275,7 @@ Read content:
 cat bootstrap.min.abc
 
 ```
-Or search for relevant content:
 
-```
-strings bootstrap.min.abc | grep -A 10 -B 2 "{"
-
-```
 **🎯 EVIDENCE 4/4 FOUND**:
 
 Inside the file, commented in the code:
@@ -439,76 +421,6 @@ Understanding common anti-forensic techniques helps anticipate where evidence mi
 - Extension manipulation
 - Hidden system folders
 
-## Tools Reference
-
-### String Extraction
-
-Extract readable strings from binary files:
-
-```
-strings <filename>
-
-```
-Extract strings with minimum length:
-
-```
-strings -n 10 <filename>
-
-```
-Search for specific patterns:
-
-```
-strings <filename> | grep -i "keyword"
-
-```
-
-### Steghide
-
-Extract hidden data:
-
-```
-steghide extract -sf <image.jpg>
-
-```
-Extract with password:
-
-```
-steghide extract -sf <image.jpg> -p <password>
-
-```
-Get info about hidden data:
-```
-steghide info <image.jpg>
-
-```
-### John the Ripper
-
-Convert ZIP to hash:
-
-```
-zip2john <file.zip> > hash.txt
-
-```
-Crack with wordlist:
-
-```
-john --wordlist=<wordlist.txt> hash.txt
-
-```
-Crack with incremental mode:
-```
-john --incremental hash.txt
-
-```
-### Password Cracking Comparison
-
-| Tool | Pros | Cons |
-|------|------|------|
-| **fcrackzip** | Simple, ZIP-specific | Slower, limited features |
-| **john the ripper** | Fast, versatile, rule-based | More complex setup |
-
-**Recommendation**: Use John the Ripper for better performance and flexibility.
-
 ## Resources
 
 ### Course
@@ -562,7 +474,6 @@ All 4 pieces of evidence successfully located and documented with:
 - Directory locations
 - Extraction techniques used
 - Evidence content identified
-
 
 
 ## Acknowledgments
