@@ -474,6 +474,9 @@ All 4 pieces of evidence successfully located and documented with:
 - Extraction techniques used
 - Evidence content identified
 
+## Note
+For a more detailed guide on the steps I followed, you can visit this post on my blog (Spanish) Análisis Forense Digital Course Capstone de Security Blue Team (https://diariohacking.com/analisis-forense-digital-course-capstone-de-security-blue-team/).
+
 
 ## Acknowledgments
 
