@@ -27,6 +27,31 @@
 
 This repository contains my writeup for the **Course Capstone Challenge** from Security Blue Team's "Introduction to Digital Forensics" course. The challenge simulates a real-world digital forensics investigation involving data exfiltration by an employee.
 
+### Relevance to Corporate Forensics
+
+**Corporate Investigations**:
+- Employee data exfiltration cases (insider threats)
+- Evidence preservation and chain of custody
+- Anti-forensic technique detection
+
+**Litigation Support**:
+- Structured investigation methodology
+- Detailed evidence documentation
+- Timeline reconstruction for legal cases
+
+**Incident Response**:
+- Malware artifact identification
+- Password-protected file analysis
+- Hidden data discovery (steganography)
+
+**Skills Demonstrated**:
+- Linux CLI forensics
+- Steganography detection and extraction
+- Password cracking (dictionary attacks)
+- File system analysis
+- Hidden file/folder discovery
+- Evidence documentation
+
 ## Challenge Description
 
 **Scenario**: The SOC received an anonymous report about a user (J. Harrison) potentially exfiltrating company data. A forensic image of the user's hard drive was obtained, and we must analyze it to find 4 pieces of hidden evidence.
